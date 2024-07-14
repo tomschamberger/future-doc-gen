@@ -8,6 +8,11 @@ function Document(props) {
     <div className="sheet-outer A4">
     <section className="sheet padding-5mm">
       <article>
+        {
+          Array.from(Array(10).keys()).map(
+            i => (<h1>{data.heading}</h1>)
+          )
+        }
         <h1>{data.heading}</h1>
         <p>{data.paragraph}</p>
       </article>
