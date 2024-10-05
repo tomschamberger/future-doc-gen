@@ -1,12 +1,28 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Future Document Generator</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Simple React SSR Vite Express</title>
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <style>
+        :root{
+            font-size: 18px;
+        }
+
+        @page {
+            size: 140mm 200mm;
+            margin: 20mm 20mm;
+        }
+
+        @media screen {
+            .pagedjs_page {
+                box-shadow: 0 0 0 1px rgba(0, 0,0,0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id='app'><!--outlet--></div>
+</body>
 </html>
