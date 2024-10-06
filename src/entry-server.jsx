@@ -7,5 +7,5 @@ export const render = () => {
   const sheet = new ServerStyleSheet();
   const html = renderToString(sheet.collectStyles(<Document />));
   const styleTags = sheet.getStyleTags();
-  return styleTags + html;
+  return [styleTags, html];
 };

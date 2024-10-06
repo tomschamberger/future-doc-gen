@@ -6,21 +6,21 @@
     <title>Simple React SSR Vite Express</title>
     <script src="node_modules/pagedjs/dist/paged.polyfill.js"></script>
     <style>
-        :root{
-            font-size: 18px;
+        html, body {
+            background-color: #eee;
         }
 
         @page {
-            size: 140mm 200mm;
-            margin: 20mm 20mm;
+            size: A4;
+            bleed: 0mm;
         }
 
-        @media screen {
-            .pagedjs_page {
-                box-shadow: 0 0 0 1px rgba(0, 0,0,0.2);
-            }
+        .pagedjs_page {
+            background-color: #fff;
+            margin-bottom: 10px;
         }
     </style>
+    <!--styles-->
 </head>
 <body>
 <div id='app'><!--outlet--></div>

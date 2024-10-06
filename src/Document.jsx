@@ -1,15 +1,45 @@
 
 import {styled} from 'styled-components';
 
-const Main = styled.div`
+const CoverPage = styled.div`
+    page: coverpage;
+    font-family: sans-serif;
+    
+    @page coverpage {
+        size: A4;
+        margin: 40mm 20mm;
+        bleed: 0mm;
+
+        @top-left {
+            content: element(titleRunning);
+            margin-top: 60px;
+        }
+
+        @top-right {
+            content: "Württembergische Versicherung AG";
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @bottom-right {
+            content: "Seite " counter(page) " von " counter(pages);
+        }
+    }
+    
     h1 {
-        color: red;
+        break-before: page;
     }
 `;
 
+const HeaderImage = styled.img`
+    position: running(titleRunning);
+    top: 0;
+`
+
 const Document = () => {
   return (
-    <Main>
+    <CoverPage>
+      <HeaderImage src="/src/images/wsw_logo.png" width="300"/>
       <section>
         <h1>Lorem ipsum dolor sit amet</h1>
         <p>
@@ -20,6 +50,7 @@ const Document = () => {
           vel sodales dolor, vel fringilla elit. Vivamus aliquam diam eu maximus elementum. Integer eu urna at felis
           fermentum hendrerit.
         </p>
+        <h1>Test</h1>
         <p>
           Nulla dignissim pellentesque magna ac maximus. Integer id tincidunt erat. Sed elementum posuere augue, quis
           pharetra mi vehicula in. Nullam rhoncus mi quis lectus gravida dignissim. Pellentesque a tortor ut leo pretium
@@ -28,7 +59,7 @@ const Document = () => {
           laoreet eleifend purus ut sagittis. Nunc consequat vel sapien at convallis.
         </p>
       </section>
-    </Main>
+    </CoverPage>
   );
 };
 

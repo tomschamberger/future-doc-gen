@@ -19,8 +19,11 @@ app.use('*', async (req, res) => {
   try {
     const template = await vite.transformIndexHtml(url, fs.readFileSync('index.html', 'utf-8'));
     const { render } = await vite.ssrLoadModule('/src/entry-server.jsx');
+    const [styles, appHtml] = await render(url);
+    const html = template
+      .replace(`<!--styles-->`, styles)
+      .replace(`<!--outlet-->`, appHtml);
 
-    const html = template.replace(`<!--outlet-->`, render);
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
   } catch (error) {
     res.status(500).end(error);
